@@ -1,23 +1,22 @@
-﻿namespace VerstaTestVatnik.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace VerstaTestVatnik.Models
 {
     public class Order
     {
-        int Id { get; set; }
-        string SenderCity { get; set; }
-        string SenderAddress { get; set; }
-        string RecepientCity { get; set; }
-        string RecepientAddress { get; set; }
-        float Weight { get; set; }
-        DateOnly Date { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
+        public int Id { get; set; }
+        public string SenderCity { get; set; }
+        public string SenderAddress { get; set; }
+        public string RecepientCity { get; set; }
+        public string RecepientAddress { get; set; }
+        public float Weight { get; set; }
 
-        Order(string senderCity, string senderAddress, string recepientCity, string recepientAddress, float weight, DateOnly date)
-        {
-            SenderCity = senderCity;
-            SenderAddress = senderAddress;
-            RecepientCity = recepientCity;
-            RecepientAddress = recepientAddress;
-            Weight = weight;
-            Date = date;
-        }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime Date { get; set; }
+
     }
 }

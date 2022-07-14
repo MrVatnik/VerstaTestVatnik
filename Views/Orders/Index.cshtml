@@ -1,0 +1,71 @@
+﻿@model IEnumerable<VerstaTestVatnik.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                Город отправителя <!--@Html.DisplayNameFor(model => model.SenderCity)-->
+            </th>
+            <th>
+                Адрес отправителя <!--@Html.DisplayNameFor(model => model.SenderAddress)-->
+            </th>
+            <th>
+                Город получателя <!--@Html.DisplayNameFor(model => model.RecepientCity)-->
+            </th>
+            <th>
+                Адрес получателя<!--@Html.DisplayNameFor(model => model.RecepientAddress)-->
+            </th>
+            <th>
+                Вес <!--@Html.DisplayNameFor(model => model.Weight)-->
+            </th>
+            <th>
+                Дата <!--@Html.DisplayNameFor(model => model.Date)-->
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SenderCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SenderAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecepientCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecepientAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
