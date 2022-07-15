@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 using VerstaTestVatnik.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,20 @@ builder.Services.AddDbContext<OrderContext>(options =>
 
 var app = builder.Build();
 
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture(new CultureInfo("en-US"))
+            ,
+    SupportedCultures = new List<CultureInfo>
+            {
+                new CultureInfo("en-US")
+            }
+            ,
+    SupportedUICultures = new List<CultureInfo>
+            {
+                new CultureInfo("en")
+            }
+});
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -29,6 +45,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Orders}/{action=Index}/{id?}");
 
 app.Run();

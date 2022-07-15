@@ -1,12 +1,12 @@
 ﻿@model VerstaTestVatnik.Models.Order
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Изменить заказ";
 }
 
-<h1>Edit</h1>
+<h1>Изменить заказ</h1>
 
-<h4>Order</h4>
+<h4>Заказ</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -35,12 +35,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Weight" class="control-label"></label>
-                <input asp-for="Weight" class="form-control" />
+                <input asp-for="Weight" class="form-control" type="number" min="0" step=".01" placeholder="1.01"/>
                 <span asp-validation-for="Weight" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
+                <input asp-for="Date" class="form-control"/>
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -51,7 +51,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Назад к списку заказов</a>
 </div>
 
 @section Scripts {

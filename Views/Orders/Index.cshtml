@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<VerstaTestVatnik.Models.Order>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Все заказы";
 }
 
-<h1>Index</h1>
+<h1>Все заказы</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Создать новый заказ</a>
 </p>
 <table class="table">
     <thead>
@@ -16,22 +16,22 @@
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                Город отправителя <!--@Html.DisplayNameFor(model => model.SenderCity)-->
+                @Html.DisplayNameFor(model => model.SenderCity)
             </th>
             <th>
-                Адрес отправителя <!--@Html.DisplayNameFor(model => model.SenderAddress)-->
+                @Html.DisplayNameFor(model => model.SenderAddress)
             </th>
             <th>
-                Город получателя <!--@Html.DisplayNameFor(model => model.RecepientCity)-->
+                @Html.DisplayNameFor(model => model.RecepientCity)
             </th>
             <th>
-                Адрес получателя<!--@Html.DisplayNameFor(model => model.RecepientAddress)-->
+                @Html.DisplayNameFor(model => model.RecepientAddress)
             </th>
             <th>
-                Вес <!--@Html.DisplayNameFor(model => model.Weight)-->
+                @Html.DisplayNameFor(model => model.Weight)
             </th>
             <th>
-                Дата <!--@Html.DisplayNameFor(model => model.Date)-->
+                @Html.DisplayNameFor(model => model.Date)
             </th>
             <th></th>
         </tr>
@@ -61,9 +61,9 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
             </td>
         </tr>
 }
